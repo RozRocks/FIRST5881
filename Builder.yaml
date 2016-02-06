@@ -288,7 +288,7 @@ Children:
         - !!robotbuilder.data.properties.ParameterDescriptor {name: SensitivityScale,
           type: int}
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: None}
+        name: Requires, type: Subsystem, validators: null, value: Drive Control}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
         default: &id008
         - !!robotbuilder.data.properties.ParameterSet

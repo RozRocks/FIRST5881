@@ -42,3 +42,9 @@ void DriveControl::InitDefaultCommand() {
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
+/*
+ * Takes the axis-values from the joystick and translates to motion.
+ */
+void DriveControl::TakeJoystickInputs(float x, float y) {
+	robotDrive->ArcadeDrive(x, y, false);
+}
