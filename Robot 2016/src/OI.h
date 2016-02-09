@@ -13,6 +13,7 @@
 #define OI_H
 
 #include "WPILib.h"
+#include <memory>
 
 class OI {
 private:
