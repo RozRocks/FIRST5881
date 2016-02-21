@@ -36,7 +36,7 @@ void RobotMap::init() {
     LiveWindow *lw = LiveWindow::GetInstance();
 
     armSpinnerSpeedController.reset(new Talon(4));
-    lw->AddActuator("Arm", "Spinner Speed Controller", (Talon&) armSpinnerSpeedController);
+    lw->AddActuator("Arm", "Spinner Speed Controller", std::static_pointer_cast<Talon>(armSpinnerSpeedController));
     
     armArmUpperLimitSwitch.reset(new DigitalInput(2));
     lw->AddSensor("Arm", "Arm Upper Limit Switch", armArmUpperLimitSwitch);
@@ -45,7 +45,7 @@ void RobotMap::init() {
     lw->AddSensor("Arm", "Arm Lower Limit Switch", armArmLowerLimitSwitch);
     
     armArmSpeedController.reset(new Talon(5));
-    lw->AddActuator("Arm", "Arm Speed Controller", (Talon&) armArmSpeedController);
+    lw->AddActuator("Arm", "Arm Speed Controller", std::static_pointer_cast<Talon>(armArmSpeedController));
     
     armUltrasonicBallSensor.reset(new Ultrasonic(0, 1));
     lw->AddSensor("Arm", "Ultrasonic Ball Sensor", armUltrasonicBallSensor);
@@ -53,17 +53,17 @@ void RobotMap::init() {
     armBallCaptureLimitSwitch.reset(new DigitalInput(4));
     lw->AddSensor("Arm", "Ball Capture Limit Switch", armBallCaptureLimitSwitch);
     
-    driveControlLeftSpeedController1.reset(new Talon(0));
-    lw->AddActuator("Drive Control", "Left Speed Controller 1", (Talon&) driveControlLeftSpeedController1);
+    driveControlLeftSpeedController1.reset(new Victor(0));
+    lw->AddActuator("Drive Control", "Left Speed Controller 1", std::static_pointer_cast<Victor>(driveControlLeftSpeedController1));
     
-    driveControlLeftSpeedController2.reset(new Talon(1));
-    lw->AddActuator("Drive Control", "Left Speed Controller 2", (Talon&) driveControlLeftSpeedController2);
+    driveControlLeftSpeedController2.reset(new Victor(1));
+    lw->AddActuator("Drive Control", "Left Speed Controller 2", std::static_pointer_cast<Victor>(driveControlLeftSpeedController2));
     
-    driveControlRightSpeedController1.reset(new Talon(2));
-    lw->AddActuator("Drive Control", "Right Speed Controller 1", (Talon&) driveControlRightSpeedController1);
+    driveControlRightSpeedController1.reset(new Victor(2));
+    lw->AddActuator("Drive Control", "Right Speed Controller 1", std::static_pointer_cast<Victor>(driveControlRightSpeedController1));
     
-    driveControlRightSpeedController2.reset(new Talon(3));
-    lw->AddActuator("Drive Control", "Right Speed Controller 2", (Talon&) driveControlRightSpeedController2);
+    driveControlRightSpeedController2.reset(new Victor(3));
+    lw->AddActuator("Drive Control", "Right Speed Controller 2", std::static_pointer_cast<Victor>(driveControlRightSpeedController2));
     
     driveControlRobotDrive.reset(new RobotDrive(driveControlLeftSpeedController1, driveControlLeftSpeedController2,
               driveControlRightSpeedController1, driveControlRightSpeedController2));
