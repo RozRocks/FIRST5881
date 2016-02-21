@@ -30,7 +30,7 @@ void ArmOpen::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ArmOpen::Execute() {
-
+	RobotMap::armArmSpeedController.get()->Set(0.3, 0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -40,11 +40,11 @@ bool ArmOpen::IsFinished() {
 
 // Called once after isFinished returns true
 void ArmOpen::End() {
-
+	RobotMap::armArmSpeedController.get()->Set(0, 0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void ArmOpen::Interrupted() {
-
+	End();
 }

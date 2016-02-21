@@ -62,6 +62,10 @@ float DriveControl::GetGyroAngle() {
  * Takes the axis-values from the joystick and translates to motion.
  */
 void DriveControl::TakeJoystickInputs(float x, float y) {
+	if (Robot::chassis.get()->IsOrientationInverted()) {
+		x = -1 * x;
+		y = -1 * y;
+	}
 	robotDrive->ArcadeDrive(-1 * y, -3 * x / 4, true);
 }
 
