@@ -113,7 +113,7 @@ Children:
             default: Talon
             name: Type
             validators: null
-            value: Talon
+            value: Victor
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
             choices: *id004
             default: '0'
@@ -129,7 +129,7 @@ Children:
             default: Talon
             name: Type
             validators: null
-            value: Talon
+            value: Victor
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
             choices: *id004
             default: '0'
@@ -145,7 +145,7 @@ Children:
             default: Talon
             name: Type
             validators: null
-            value: Talon
+            value: Victor
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
             choices: *id004
             default: '0'
@@ -161,7 +161,7 @@ Children:
             default: Talon
             name: Type
             validators: null
-            value: Talon
+            value: Victor
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
             choices: *id004
             default: '0'
@@ -292,7 +292,7 @@ Children:
           validators: null
           value: whenPressed
       Base: Joystick Button
-      Name: Joystick Button 5
+      Name: Joystick Button 1
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -307,7 +307,36 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '1'
+          value: '2'
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id008
+          value: ArmCapture
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id009
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whenPressed
+      Base: Joystick Button
+      Name: Joystick Button 2
+    - Children: []
+      Properties:
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: Joystick}
+        Parameters: !!robotbuilder.data.properties.ParametersProperty
+          default: []
+          name: Parameters
+          validators: null
+          value: []
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id007
+          default: '1'
+          name: Button
+          validators: null
+          value: '3'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -321,7 +350,7 @@ Children:
           validators: null
           value: whenPressed
       Base: Joystick Button
-      Name: Joystick Button 7
+      Name: Joystick Button 3
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -336,7 +365,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '1'
+          value: '4'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -348,9 +377,9 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whileHeld
+          value: whenPressed
       Base: Joystick Button
-      Name: Joystick Button 8
+      Name: Joystick Button 4
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: ['0', '1', '2', '3', '4', '5']
@@ -367,13 +396,11 @@ Children:
   - Children: []
     Properties:
       Parameters: !!robotbuilder.data.properties.ParametersProperty
-        default:
-        - &id010 !!robotbuilder.data.properties.ParameterDescriptor {name: AutoRoutine,
-          type: String}
+        default: []
         name: Parameters
         validators: null
         value:
-        - *id010
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: AutoRoutine, type: String}
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: None}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
@@ -390,7 +417,7 @@ Children:
           parameters:
           - {name: AutoRoutine, type: String, value: gunit}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
+        name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: Autonomous Command
   - Children: []
@@ -501,7 +528,7 @@ Children:
   Base: Commands
   Name: Commands
 Properties:
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Developer\workspace',
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Robotics\workspace',
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Users\Robotics\git\FIRST5881'}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
@@ -522,7 +549,7 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Developer\',
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Robotics\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\Robotics\'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
