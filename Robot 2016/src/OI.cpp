@@ -17,6 +17,8 @@
 #include "Commands/ArmEject.h"
 #include "Commands/ArmLock.h"
 #include "Commands/ArmOpen.h"
+#include "Commands/AssistedDrive.h"
+#include "Commands/AssistedTurn.h"
 #include "Commands/AutonomousCommand.h"
 #include "Commands/Drive.h"
 
