@@ -48,7 +48,7 @@ private:
     double totalDriveTimeNeeded;
     float drivePower;
     std::string speedSelection;
-    ClockTimer timer;
+    ClockTimer* timer;
 
     bool isAngleInTolerance();
     float degreeOffsetToMatchBearing();
