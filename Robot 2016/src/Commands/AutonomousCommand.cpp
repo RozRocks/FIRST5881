@@ -39,10 +39,51 @@ AutonomousCommand::AutonomousCommand(std::string Autoroutine): CommandGroup() {
 	// Robot Width = 29 1/4" or 2.4375'
 	// Distances measured from front center of bot
 
+	/*
+	 * Autoroutine Possibilities
+	 *
+	 * reach
+	 * gunit
+	 * spyscore
+	 * offsetbreechright
+	 * offsetbreechleft
+	 *
+	 */
+
+	if (Autoroutine == "reach") {
+		// Step 1 -> Forward 141.22" == 11.768'
+		AddSequential(new AssistedDrive(11.768, 0));
+
+	} else if (Autoroutine == "gunit") {
+		// Step 1 -> Forward 150" == 12.5'
+		AddSequential(new AssistedDrive(12.5, 0));
+
+	} else if (Autoroutine == "spyscore") {
+		// Step 1 -> Turn clockwise 60 degrees & Forward 59" == 4.916'
+		AddSequential(new AssistedDrive(4.916, 60));
+		// Step 2 -> Turn counter-clockwise 90 degrees & Forward 97.5" == 8.125'
+		AddSequential(new AssistedDrive(8.125, -90));
+
+	}else if (Autoroutine == "offsetbreechright") {
+		// Step 1 -> Forward 70" == 5.833'
+		AddSequential(new AssistedDrive(5.833, 0));
+		// Step 2 -> Turn clockwise 90 degrees & Forward 50" == 4.166'
+		AddSequential(new AssistedDrive(4.166, 90));
+		// Step 3 -> Turn counter-clockwise 90 degrees & Forward 80" == 6.666'
+		AddSequential(new AssistedDrive(6.666, -90));
+
+	}else if (Autoroutine == "offsetbreechleft") {
+		//Step 1 -> Forward 70" == 5.833'
+		AddSequential(new AssistedDrive(5.833, 0));
+		//Step 2 -> Turn counter-clockwise 90 degrees & Forward 50" == 4.166'
+		AddSequential(new AssistedDrive(4.166, -90));
+		//Step 3 -> Turn counter-clockwise 90 degrees & Forward 80" == 6.666'
+		AddSequential(new AssistedDrive(6.666, 90));
+	}
 
  }
 
-double AutonomousCommand::DistanceDistanceAddingRobotLength(double distance) {
+double AutonomousCommand::DistanceAddingRobotLength(double distance) {
 	// Robot Length 30.5" or 2.5416'
 
 	return distance + 2.5416;

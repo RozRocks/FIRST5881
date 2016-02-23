@@ -14,6 +14,7 @@
 #define AUTONOMOUS_COMMAND_H
 
 #include "Commands/CommandGroup.h"
+#include "AssistedDrive.h"
 
 /**
  *
