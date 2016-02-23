@@ -35,9 +35,20 @@ DriveControl::DriveControl() : Subsystem("DriveControl") {
     digitalGyro = RobotMap::driveControlDigitalGyro;
     digitalGyro.get()->Calibrate();
 
-    SmartDashboard::PutNumber("Full Power 10' Time", 1);
-    SmartDashboard::PutNumber("Half Power 10' Time", 2);
-    SmartDashboard::PutNumber("30% Power 10' Time", 2.2);
+    // Timing settings. These are timed numbers measured as the amount of time it takes
+    // the robot to move 10' at the given power level.
+    SmartDashboard::PutNumber("Full Power 10' Time", 0.92);
+    SmartDashboard::PutNumber("Half Power 10' Time", 1.84);
+    SmartDashboard::PutNumber("1/3rd Power 10' Time", 2.76);
+
+    // Gryo tolerance - used in auto to provide non-perfect directions
+    SmartDashboard::PutNumber("Auto Gyro Tolerance (+- Deg)", 5);
+
+    autoSpeedChooser.reset(new SendableChooser());
+    autoSpeedChooser->AddDefault("Full Speed", new std::string("FULL"));
+    autoSpeedChooser->AddObject("Half-Speed", new std::string("HALF"));
+    autoSpeedChooser->AddObject("1/3rd Speed", new std::string("THIRD"));
+   	SmartDashboard::PutData("Autonomous Speed Selection", autoSpeedChooser.get());
 }
 
 void DriveControl::InitDefaultCommand() {
@@ -58,6 +69,10 @@ float DriveControl::GetGyroAngle() {
 	return digitalGyro->GetAngle();
 }
 
+void DriveControl::UpdateDashboard() {
+	SmartDashboard::PutNumber("Gyro Heading", Robot::driveControl.get()->GetGyroAngle());
+}
+
 /*
  * Takes the axis-values from the joystick and translates to motion.
  */
@@ -70,13 +85,51 @@ void DriveControl::TakeJoystickInputs(float x, float y) {
 }
 
 double DriveControl::getFullPowerTime() {
-	return SmartDashboard::GetNumber("Full Power 10' Time", 1);
+	return SmartDashboard::GetNumber("Full Power 10' Time", 0.92);
 }
 
 double DriveControl::getHalfPowerTime() {
-	return SmartDashboard::GetNumber("Half Power 10' Time", 2);
+	return SmartDashboard::GetNumber("Half Power 10' Time", 1.84);
 }
 
-double DriveControl::get30PctPowerTime() {
-	return SmartDashboard::GetNumber("30% Power 10' Time", 2.2);
+double DriveControl::getThirdPowerTime() {
+	return SmartDashboard::GetNumber("1/3rd Power 10' Time", 2.76);
+}
+
+double DriveControl::getAutoGyroTolerance() {
+	return SmartDashboard::GetNumber("Auto Gyro Tolerance (+- Deg)", 5);
+}
+
+std::string DriveControl::getAutoSpeedSelection() {
+	std::shared_ptr<ITable> table = autoSpeedChooser->GetTable();
+	return table->GetString("selected", "FULL");
+}
+
+/**
+ * Returns the float value for the motor drive power for the given set time.
+ */
+float DriveControl::getAutoSpeedValue() {
+	std::string speed = getAutoSpeedSelection();
+	if (speed == "FULL") {
+		return 1;
+	} else if (speed == "HALF") {
+		return 0.5;
+	} else if (speed == "THIRD") {
+		return 0.33333;
+	}
+
+	return 1;
+}
+
+double DriveControl::getAutoSetPowerTime() {
+	std::string speed = getAutoSpeedSelection();
+	if (speed == "FULL") {
+		return getFullPowerTime();
+	} else if (speed == "HALF") {
+		return getHalfPowerTime();
+	} else if (speed == "THIRD") {
+		return getThirdPowerTime();
+	}
+
+	return 1;
 }

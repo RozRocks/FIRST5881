@@ -42,8 +42,6 @@ void Drive::Execute() {
 
 	std::pair<float, float> scaled = ScaleAxis(x, y, m_SensitivityScale);
 
-	UpdateDashboard();
-
 	Robot::driveControl.get()->TakeJoystickInputs(scaled.first, scaled.second);
 }
 
@@ -61,10 +59,6 @@ void Drive::End() {
 // subsystems is scheduled to run
 void Drive::Interrupted() {
 
-}
-
-void Drive::UpdateDashboard() {
-	SmartDashboard::PutNumber("Gyro Heading", Robot::driveControl.get()->GetGyroAngle());
 }
 
 /**
