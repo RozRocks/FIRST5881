@@ -12,6 +12,7 @@ ClockTimer::ClockTimer(double seconds) {
 	timeRemaining = seconds;
 	isRunning = false;
 	startTime = Clock::now();
+	std::cout << "ClockTimer init for " << seconds << "s" << std::endl;
 }
 
 ClockTimer::~ClockTimer() {
@@ -22,8 +23,12 @@ ClockTimer::~ClockTimer() {
  */
 void ClockTimer::start() {
 	if (!isRunning) {
+		std::cout << "ClockTimer start()" << std::endl;
 		startTime = Clock::now();
 		isRunning = true;
+		std::cout << "ClockTimer start() complete" << std::endl;
+	} else {
+		std::cout << "ClockTimer start() when already running" << std::endl;
 	}
 }
 
@@ -32,6 +37,7 @@ void ClockTimer::start() {
  */
 void ClockTimer::stop() {
 	if (isRunning) {
+		std::cout << "ClockTimer stop()" << std::endl;
 		std::chrono::time_point<std::chrono::high_resolution_clock> endTime = Clock::now();
 		std::chrono::duration<double> diff = endTime - startTime;
 		if (diff.count() > timeRemaining) {
@@ -40,6 +46,9 @@ void ClockTimer::stop() {
 			timeRemaining = timeRemaining - diff.count();
 		}
 		isRunning = false;
+		std::cout << "ClockTimer stop() complete with " << timeRemaining << "s remaining" << std::endl;
+	} else {
+		std::cout << "ClockTimer stop() when not running" << std::endl;
 	}
 }
 

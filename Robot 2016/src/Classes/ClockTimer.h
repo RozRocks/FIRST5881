@@ -8,6 +8,7 @@
 #ifndef SRC_CLASSES_CLOCKTIMER_H_
 #define SRC_CLASSES_CLOCKTIMER_H_
 
+#include <iostream>
 #include <chrono>
 typedef std::chrono::high_resolution_clock Clock;
 
