@@ -19,12 +19,10 @@ import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Victor;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.tables.ITable;
 
 
 /**
@@ -41,7 +39,7 @@ public class DriveControl extends Subsystem {
 	private static final String FULL_SPEED_VALUE = "FULL";
 	private static final String HALF_POWER_TIME = "Half Power 10' Time";
 	private static final String HALF_SPEED_VALUE = "HALF";
-	private static final String ONETHIRD_POWER_TIME = "1/3rd Power 10' Time";
+	private static final String ONETHIRD_POWER_TIME = "One-Third Power 10' Time";
 	private static final String ONETHIRD_SPEED_VALUE = "THIRD";
 	private static final String JOYSTICK_DEADZONE_X = "Joystick X-Axis Deadzone";
 	private static final String JOYSTICK_DEADZONE_Y = "Joystick Y-Axis Deadzone";
@@ -168,8 +166,7 @@ public class DriveControl extends Subsystem {
     }
     
     public String getAutoSpeedSelection() {
-    	ITable table = autoSpeedChooser.getTable();
-    	return table.getString("selected", FULL_SPEED_VALUE);
+    	return (String) autoSpeedChooser.getSelected();
     }
     
     /**
@@ -183,9 +180,10 @@ public class DriveControl extends Subsystem {
     		return 0.5f;
     	} else if (speed == ONETHIRD_SPEED_VALUE) {
     		return 0.33333f;
+    	} else {
+    		System.out.println("Unknown autoSpeedSelection: " + speed);
+    		return 1f;
     	}
-
-    	return 1f;
     }
 
     public double getAutoSetPowerTime() {
