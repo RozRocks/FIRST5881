@@ -595,7 +595,10 @@ Children:
         value:
         - !!robotbuilder.data.properties.ParameterDescriptor {name: Autoroutine, type: String}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id010
+        default: []
+        name: Parameter presets
+        validators: null
+        value:
         - !!robotbuilder.data.properties.ParameterSet
           name: REACH Defense
           parameters:
@@ -604,14 +607,11 @@ Children:
           name: Gun it & BREECH
           parameters:
           - {name: Autoroutine, type: String, value: gunit}
-        name: Parameter presets
-        validators: null
-        value: *id010
       Commands: !!robotbuilder.data.properties.ListProperty
-        default: &id011 []
+        default: []
         name: Commands
         validators: [List]
-        value: *id011
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command Group
@@ -620,8 +620,8 @@ Children:
   Base: Commands
   Name: Commands
 Properties:
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Robotics\workspace',
-    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Users\Robotics\git\FIRST5881'}
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Developer\workspace',
+    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Users\Developer\git\RozRocks\FIRST5881'}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
   Autonomous command parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -629,20 +629,20 @@ Properties:
     name: Autonomous command parameters
     validators: null
     value:
-    - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: AutoRoutine,
-      type: String, value: reach}
+    - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: Autoroutine,
+      type: String, value: ''}
   Java Package: !!robotbuilder.data.properties.StringProperty {default: org.usfirst.frc0000,
-    name: Java Package, validators: null, value: org.usfirst.frc5881}
+    name: Java Package, validators: null, value: org.techvalleyhigh.frc5881}
   Use Default Java Package: !!robotbuilder.data.properties.BooleanProperty {default: true,
-    name: Use Default Java Package, validators: null, value: true}
+    name: Use Default Java Package, validators: null, value: false}
   Team Number: !!robotbuilder.data.properties.IntegerProperty {default: 0, name: Team Number,
     validators: null, value: 5881}
   Export Subsystems: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Robotics\',
-    extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\Robotics\'}
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Developer\',
+    extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\Developer'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
 Base: Robot
