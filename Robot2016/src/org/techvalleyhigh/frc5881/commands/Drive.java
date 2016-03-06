@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.techvalleyhigh.frc5881.Robot;
 
 /**
- *
+ * Drive command to take joystick input at a given scale and move the robot.
  */
 public class Drive extends Command {
 

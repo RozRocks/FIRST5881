@@ -18,7 +18,7 @@ import org.techvalleyhigh.frc5881.Robot;
 import org.techvalleyhigh.frc5881.subsystems.Chassis;
 
 /**
- *
+ * Command to select the first forward camera, and set the robot orientation forward.
  */
 public class ForwardCam1 extends Command {
 

@@ -20,6 +20,7 @@ public class ClockTimer {
 	
 	/**
 	 * Initialize a timer of a given length in seconds.
+	 * 
 	 * @param seconds Seconds to set the timer for. Only accurate to 1ms, fractions truncated
 	 */
 	public ClockTimer(double seconds) {
@@ -58,6 +59,7 @@ public class ClockTimer {
 	
 	/**
 	 * Indicates if the timer is expired due to time elapsed.
+	 * 
 	 * @return TRUE if the timer has elapsed it's time, FALSE if time remains
 	 */
 	public boolean isExpired() {
@@ -75,6 +77,7 @@ public class ClockTimer {
 	
 	/**
 	 * Gives the amount of time remaining in the timer.
+	 * 
 	 * @return Amount of time remaining in milliseconds
 	 */
 	public long remaining() {

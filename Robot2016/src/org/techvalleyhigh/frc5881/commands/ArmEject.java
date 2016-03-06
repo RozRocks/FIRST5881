@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.techvalleyhigh.frc5881.Robot;
 
 /**
- *
+ * Spins the boulder mechanism to eject a boulder.
  */
 public class ArmEject extends Command {
 
