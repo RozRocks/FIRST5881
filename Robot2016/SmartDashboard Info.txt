@@ -1,0 +1,83 @@
+A large number of tunable settings are expressed via the SmartDashboard, as well as some
+read-only (diagnostic) items. This is a brief summary of what they are and do or represent.
+
+Most of these settings are set by code on robot startup, and any long-term changes should
+be updated in code. Short term changes should be recorded elsewhere and saved for re-entry.
+
+-- Settings --
+
+"Forward Camera 1", "Forward Camera 2", "Forward Camera 3" - These contain the RoboRIO
+  internal names for each of the 3 cameras. Generally these should be cam0, cam1, and cam2
+  During bootup of the RoboRIO there is no guarantee which physical camera will get which
+  name, and these may need to be changed on each RoboRIO reboot.
+  
+"Joystick X-Axis Deadzone", "Joystick Y-Axis Deadzone" - These contain the values under which
+  the joystick drive input will be ignored. Values are from 0 to 1 and may contain several
+  digits after the decimal point. The default value for both settings is 0.1 (10%).
+  
+"Articulation Speed" - This contains the motor power level (0 to 1) the arm articulation motor
+  is commanded to move at when opening or closing the arm. Care should be taken changing this
+  value. Setting it too high may result in the robot inflicting damage on itself as the arm
+  swings around. Setting it too low may stall the motor and damage it. Default is 0.3.
+  
+"Spinner Intake Speed", "Spinner Eject Speed" - This contains the motor power level (0 to 1)
+  the ball capture spinner motor is commanded to spin at when taking in or ejecting a ball.
+  Default intake is 0.3 and default eject is 0.5.
+
+- Autonomous Related Settings
+
+"Full Power 10' Time", "Half Power 10' Time", "One-Third Power 10' Time" - These values
+  contain the amount of time (in seconds) the robot takes to move 10' at the given power
+  level. These values are critically important in calculating the distance to travel during
+  autonomous. The values are based on the average of a number of runs over 50' with a full
+  battery. If altering these values, be sure to test with a full battery (match conditions),
+  and remember that changes here increase all travel times in all directions. (Eg. If more
+  time is needed to CROSS a DEFENSE, but not to travel on the carpet normally, you'll want
+  to change the program, not this value.)
+
+"Auto Gyro Tolerance (+- Deg)" - This contains a value of "allowable" drift, measured in
+  degrees, permitted during autonomous driving. Once this tolerance is exceeded the robot
+  will stop and turn to correct the drift before resuming it's course. May need to be tuned
+  significant higher for some defenses, or if the gyro is having excessive drift.
+  
+Speed Selector ("Full Speed", "Half Speed", "1/3rd Speed") - This selects the motor speed
+  for autonomous only. Plan on setting this for each match to correspond to the autonomous
+  program selected.
+
+Autonomous Program - This selects which of the following autonomous programs will execute
+  at the start of the autonomous period. 
+    * Reach Defense - Moves the robot forward enough to come into contact with the defense.
+    * Gun It & Breech Defense - Does exactly what it says. Moves forward at the speed set
+        by the Speed Selector far enough to breech a defense.
+    * Spy-Bot Low Score - Attempts to score a low-goal starting from the spy bot position.
+        (Probably won't work w/o alot of effort to test)
+    * Breech Defense to Left, Breech Defense to Right - Moves the robot to the defense to
+        it's left or right, respectfully, and proceeds to move ahead to breech it.
+        
+- Drive Settings
+
+"Drive: Flatter", "Drive: Medium Slow", "Drive: Slow RampUp" - These command buttons tell
+  the drive system to re-scale the joystick input. The purpose is to apply an exponential
+  curve to the joystick inputs, allowing for more range of motion at finer/slower speeds,
+  while minimizing the distance from "fast" to "full pwoer". Each setting, as you progress
+  from left to right in this list, increases the curvature applied, meaning you have to
+  push forward more to get faster.
+  
+-- Read-Only Diagnostic Values
+
+"Scale Factor" - The numeric presentation of the amount of curve applied to the joystick
+  input. Large numbers indicate more curve.
+
+"X-Scale", "Y-Scale" - The raw scaled input numbers from the joystick after scaling.
+
+"Orientation" - Confirms the current drive orientation of the bot, "Normal" or "Inverted".
+  A "Normal" drive state has the forward direction with the ball intake leading.
+  
+"Gyro Heading" - Updating only when driving, this is the heading the gryo believes the
+  robot to be heading. Note this is relative to a "0" position at robot power-on. As the
+  robot turns this can become a positive or negative multiple of 360 quite easily.
+  
+Scheduler - While commands are running you'll see them pop in and out of a list on the
+  SmartDashboard. By default you'll (almost) always see the "Drive" command in a running
+  state (with a "Cancel") button. As other commands execute they will be listed here.
+  Commands generally should not be canceled unless attempting to avoid an e-stop.
