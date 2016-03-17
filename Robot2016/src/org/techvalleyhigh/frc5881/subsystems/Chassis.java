@@ -88,7 +88,7 @@ public class Chassis extends Subsystem {
      * @param dashboardCamLabel The SmartDashboard label to use to select the current cam, or null
      */
     public void setOrientationAndVideo(final boolean inverted, final String dashboardCamLabel) {
-    	isInverted = !isInverted;
+    	isInverted = inverted;
     	
     	SmartDashboard.putString("Orientation", isInverted ? "Inverted" : "Normal");
     	

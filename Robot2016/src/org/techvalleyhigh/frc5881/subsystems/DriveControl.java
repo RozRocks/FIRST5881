@@ -72,9 +72,9 @@ public class DriveControl extends Subsystem {
     	
     	// Timing settings. These are timed numbers measured as the amount of time it takes
         // the robot to move 10' at the given power level.
-        SmartDashboard.putNumber(FULL_POWER_TIME, 0.4);
-        SmartDashboard.putNumber(HALF_POWER_TIME, 0.8);
-        SmartDashboard.putNumber(ONETHIRD_POWER_TIME, 1.2);
+        SmartDashboard.putNumber(FULL_POWER_TIME, 0.75);
+        SmartDashboard.putNumber(HALF_POWER_TIME, 1.5);
+        SmartDashboard.putNumber(ONETHIRD_POWER_TIME, 2.25);
         
         // Gryo tolerance - used in auto to provide non-perfect directions
         SmartDashboard.putNumber(AUTO_GYRO_TOLERANCE, 5);
