@@ -74,6 +74,8 @@ public class AutonomousCommand extends CommandGroup {
     		addSequential(new AssistedDrive(distanceAddingRobotLength(4.166), -90));
     		//Step 3 -> Turn counter-clockwise 90 degrees & Forward 80" == 6.666'
     		addSequential(new AssistedDrive(distanceAddingRobotLength(6.666), 90));
+    	} else if (Autoroutine == "null") {
+    		// No autonomous
     	}
 
      }

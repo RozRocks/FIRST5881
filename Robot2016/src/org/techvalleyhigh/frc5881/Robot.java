@@ -77,6 +77,7 @@ public class Robot extends IterativeRobot {
         autoChooser.addObject("Spy-Bot Low Score", new AutonomousCommand("spyscore"));
         autoChooser.addObject("Breech Defense to Left", new AutonomousCommand("breechleft"));
         autoChooser.addObject("Breech Defense to Right", new AutonomousCommand("breechright"));
+        autoChooser.addObject("NONE", new AutonomousCommand("null"));
         
         SmartDashboard.putData("Autonomous Mode Selection", autoChooser);
         
