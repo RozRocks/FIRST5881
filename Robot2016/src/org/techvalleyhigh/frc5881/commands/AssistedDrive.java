@@ -74,13 +74,13 @@ public class AssistedDrive extends Command {
     			direction = -1;
     		}
 
-    		float speed = .5f;
+    		float speed = .6f;
     		if (Math.abs(degreeOffset) > 90) {
-    			speed = .5f;
+    			speed = .6f;
     		} else if (Math.abs(degreeOffset) > 45) {
-    			speed = .3f;
+    			speed = .4f;
     		} else {
-    			speed = .2f;
+    			speed = .3f;
     		}
 
     		System.out.println("[TURN] Offset " + degreeOffset + " Drive(0, "
