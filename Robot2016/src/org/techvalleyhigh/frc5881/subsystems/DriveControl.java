@@ -67,14 +67,13 @@ public class DriveControl extends Subsystem {
     }
     
     private void initSmartDashboard() {
-    	digitalGyro = RobotMap.driveControlDigitalGyro;
-    	digitalGyro.calibrate();
+    	calibrateGyro();
     	
     	// Timing settings. These are timed numbers measured as the amount of time it takes
         // the robot to move 10' at the given power level.
-        SmartDashboard.putNumber(FULL_POWER_TIME, 0.75);
-        SmartDashboard.putNumber(HALF_POWER_TIME, 1.5);
-        SmartDashboard.putNumber(ONETHIRD_POWER_TIME, 2.25);
+        SmartDashboard.putNumber(FULL_POWER_TIME, 1.1);
+        SmartDashboard.putNumber(HALF_POWER_TIME, 2.2);
+        SmartDashboard.putNumber(ONETHIRD_POWER_TIME, 3.3);
         
         // Gryo tolerance - used in auto to provide non-perfect directions
         SmartDashboard.putNumber(AUTO_GYRO_TOLERANCE, 5);
@@ -103,6 +102,11 @@ public class DriveControl extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
     
+    public void calibrateGyro() {
+    	digitalGyro = RobotMap.driveControlDigitalGyro;
+    	digitalGyro.calibrate();
+    }
+    
     public double getGyroAngle() {
     	return digitalGyro.getAngle();
     }
@@ -121,7 +125,7 @@ public class DriveControl extends Subsystem {
    
    public void rawDrive(float move, float turn) {
 	   updateDashboard();
-	   robotDrive.arcadeDrive(move, turn);
+	   robotDrive.arcadeDrive(move, turn, true);
    }
 
     /*

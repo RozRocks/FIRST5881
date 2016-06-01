@@ -57,7 +57,10 @@ public class AutonomousCommand extends CommandGroup {
     	} else if (Autoroutine == "gunit") {
     		// Step 1 -> Forward 150" == 12.5'
     		addSequential(new AssistedDrive(distanceAddingRobotLength(10.5), 0));
-
+    	} else if (Autoroutine == "gunit-moat") {
+    		addSequential(new AssistedDrive(distanceAddingRobotLength(15), 0));
+    	} else if (Autoroutine == "gunit-rockwall") {
+    		addSequential(new AssistedDrive(distanceAddingRobotLength(13.5), 0));
     	} else if (Autoroutine == "spyscore") {
     		// Step 1 -> Turn clockwise 60 degrees & Forward 59" == 4.916'
     		addSequential(new AssistedDrive(4.916, 60));

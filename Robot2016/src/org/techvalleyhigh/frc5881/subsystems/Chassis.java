@@ -95,7 +95,7 @@ public class Chassis extends Subsystem {
     	String finalCamLabel = dashboardCamLabel != null ? dashboardCamLabel :
     		(isInverted ? REVERSE_CAM : FORWARD_CAM_1);
     	
-    	DynamicCameraServer.getInstance().switchAutomaticCapture(dashboardCamLabel);
+    	DynamicCameraServer.getInstance().switchAutomaticCapture(finalCamLabel);
     }
 }
 

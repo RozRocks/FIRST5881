@@ -69,24 +69,24 @@ public class AssistedDrive extends Command {
 
     		double degreeOffset = degreeOffsetToMatchBearing();
 
-    		float direction = 1;
+    		float direction = -1;
     		if (Math.abs(degreeOffset) != degreeOffset) {
-    			direction = -1;
+    			direction = 1;
     		}
 
-    		float speed = .6f;
+    		float speed = .8f;
     		if (Math.abs(degreeOffset) > 90) {
-    			speed = .6f;
+    			speed = .8f;
     		} else if (Math.abs(degreeOffset) > 45) {
-    			speed = .4f;
+    			speed = .7f;
     		} else {
-    			speed = .3f;
+    			speed = .6f;
     		}
 
     		System.out.println("[TURN] Offset " + degreeOffset + " Drive(0, "
     				+ direction * speed + ")");
 
-    		Robot.driveControl.rawDrive(0f, direction * speed);
+    		Robot.driveControl.rawDrive(drivePower/3f, direction * speed);
     	} else {
     		// If on bearing, start timer and drive bot...
     		timer.start();

@@ -74,6 +74,8 @@ public class Robot extends IterativeRobot {
         autoChooser = new SendableChooser();
         autoChooser.addDefault("Reach Defense", new AutonomousCommand("reach"));
         autoChooser.addObject("Gun It & Breech Defense", new AutonomousCommand("gunit"));
+        autoChooser.addObject("Gun it & Breech Moat", new AutonomousCommand("gunit-moat"));
+        autoChooser.addObject("Gun it & Breech Rock Wall", new AutonomousCommand("gunit-rockwall"));
         autoChooser.addObject("Spy-Bot Low Score", new AutonomousCommand("spyscore"));
         autoChooser.addObject("Breech Defense to Left", new AutonomousCommand("breechleft"));
         autoChooser.addObject("Breech Defense to Right", new AutonomousCommand("breechright"));
@@ -119,11 +121,11 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         
-        if (driveCommand != null) {
-        	driveCommand.start();
-        } else {
-        	System.err.println("teleopInit() Failed to start Drive command due to null");
-        }
+//        if (driveCommand != null) {
+//        	driveCommand.start();
+//        } else {
+//        	System.err.println("teleopInit() Failed to start Drive command due to null");
+//        }
     }
 
     /**
