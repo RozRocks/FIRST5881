@@ -18,7 +18,7 @@ import org.techvalleyhigh.frc5881.Robot;
 import org.techvalleyhigh.frc5881.subsystems.Chassis;
 
 /**
- *
+ * Command to select the reverse camera, and set the robot orientation backward.
  */
 public class ReverseOrientation extends Command {
 

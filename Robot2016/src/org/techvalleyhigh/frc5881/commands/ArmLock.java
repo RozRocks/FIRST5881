@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.techvalleyhigh.frc5881.Robot;
 
 /**
- *
+ * Articulates the boulder arm down toward the front of the robot.
  */
 public class ArmLock extends Command {
 

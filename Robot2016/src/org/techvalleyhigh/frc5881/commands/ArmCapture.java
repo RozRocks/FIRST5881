@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.techvalleyhigh.frc5881.Robot;
 
 /**
- *
+ * Arm capture spins the boulder mechanism to take in a boulder. 
  */
 public class ArmCapture extends Command {
 

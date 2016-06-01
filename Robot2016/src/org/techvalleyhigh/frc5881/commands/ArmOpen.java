@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.techvalleyhigh.frc5881.Robot;
 
 /**
- *
+ * Opens or raises the articulating arm up and or away from the front of the robot. 
  */
 public class ArmOpen extends Command {
 

@@ -15,7 +15,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.techvalleyhigh.frc5881.subsystems.*;
 
 /**
- *
+ * Autonomous Command Group. Contains the step-by-step instructions for the various
+ * autonomous commands.
  */
 public class AutonomousCommand extends CommandGroup {
 
@@ -88,7 +89,16 @@ public class AutonomousCommand extends CommandGroup {
 
      }
 
-    double distanceAddingRobotLength(double distance) {
+    /**
+     * Adds the robot length to the distance given to adjust for various measurement points
+     * during autonomous design. For example, if an autonomous drive is to go 10 feed forward
+     * from the auto line, but the measurement point was the other side ofthe robot, this
+     * will adjust the distance.
+     * 
+     * @param distance feet to travel
+     * @return number of feet of travel plus the length of the robot.
+     */
+    private double distanceAddingRobotLength(double distance) {
     	// Robot Length 30.5" or 2.5416'
 
     	return distance + 2.5416;

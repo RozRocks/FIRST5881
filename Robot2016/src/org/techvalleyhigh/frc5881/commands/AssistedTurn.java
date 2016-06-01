@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.techvalleyhigh.frc5881.Robot;
 
 /**
- *
+ * Not implemented (yet?)
  */
 public class AssistedTurn extends Command {
 
